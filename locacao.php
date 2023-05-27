@@ -40,7 +40,7 @@
     }
   }
   if (!$found) {
-    header("location: index0.php");
+    header("location: logout.php");
   }
 
   echo $_SESSION['vald'];

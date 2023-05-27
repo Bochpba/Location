@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <a href="index0.php"> Logout </a>
+  <a href="logout.php"> Logout </a>
   <br><br>
   <a href="consulta_accprof.php"> Consultar Equipamento Por Nome </a>
   <br><br>
@@ -34,7 +34,7 @@
     }
   }
   if (!$found) {
-    header("location: index0.php");
+    header("location: logout.php");
   }
 
   echo $_SESSION['vald'];
@@ -44,7 +44,7 @@
   $sqlp = "SELECT * FROM professores ORDER BY aula, position";
   $resultp = mysqli_query($conn, $sqlp);
   ?>
-  <form method="GET" action="locacao.php">
+  <form method="GET" action="locacaoprof.php">
     <input type="date" value="<?php echo $_GET['data'] ?>" name="data" required>
     <input type="submit" value="Salvar">
   </form>
