@@ -100,9 +100,9 @@
       }
       echo "</tr>";
     }
-    
+    $_SESSION['yes'] = null;
+    $_SESSION['no'] = null;
     ?>
-
   </table>
   </div>
 </body>
