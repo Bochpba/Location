@@ -1,61 +1,51 @@
-#div{
+body{
     margin: 0px;
-
 }
 
+.container {
+    width: 100vw;
+    height: 100vh;
+    background: #fdedc8;
+    display: flex; 
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 
-body{
-    text-align: center;
-    background-color: #f7ecde;
-    overflow: hidden;
-    font-family:'Times New Roman', Times, serif;
+    
 }
 
 button{
-  
-    background-color: #ff911c;
+    background-color: #ff871e;
     border: 0px;
     width: 100px;
     height: 35px;
     font-weight: bold;
-
-}
-
-a{
-    text-decoration: none;
-    color: black;
-    margin-right: 80%;
-}
-
-.container {
-    margin-left: 20%;
     justify-content: center;
-    align-items: center;
-    padding-bottom: 50%;
-    margin-top: 50px;
-    margin-bottom: 100px;
-    height: 60%;
-} 
-.boxs{
-   
-    box-shadow: -16px 18px 3px 0px #978c7e;
+
+}
+
+.box3{
+    display: flex; 
+    -webkit-box-shadow: -30px 30px 10px 1px rgba(96, 88, 78, 0.75);
+    -moz-box-shadow: -30px 30px 10px 1px rgba(96, 88, 78, 0.75);
+    box-shadow: -30px 30px 10px 1px rgba(96, 88, 78, 0.75);
+}
+
+.box {
+    width: 200px;
+    height: 600px;
+    background: #ff871e;
+    
+}
+
+.box1{
     width: 800px;
-    height: 60%;
-    background: #ff911c;
-  
-}
-.box{
-    margin-left: 30%;
-    padding-top: 10%;
-    padding-bottom: 10%;
-    width: 600px;
-    height: 100%;
-    background: #fff;
-
+    height: 600px;
+    background: #dbdbdb;
+    text-align: center;
 }
 
-
-.box input{
+.box1 input{
     background-color: #bbbbbb;
     border: 0px;
     border-radius: 60px;
@@ -63,27 +53,41 @@ a{
     width: 300px;
     font-weight: bold
     
-
 }
-.box select{
+
+h1 {
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 30px;
+    height: auto;
+    width: auto;
+}
+
+.box1 img{
+    width: 200px;
+    height: 200px;
+    justify-content: center;
+    padding-top: 5%;
+}
+
+a {
+    margin-left: 40%;
+    color:black;
+}
+
+select{
     background-color: #bbbbbb;
     border: 0px;
     border-radius: 60px;
     height: 45px;
     width: 300px;
-    font-weight: bold;
-    padding-left: 1.3em;
-    
-
-}
-.box input{
-    background-image: url("Login.png");
-    background-repeat: no-repeat;
-    background-position: left;
-    background-size: 1.3em;
-    padding-left: 1.3em;
+    font-weight: bold
 }
 
+h2{
+   padding-bottom: 0%;
+}
 
-
-
+h3{
+    padding-bottom: 0%;
+ }

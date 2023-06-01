@@ -21,12 +21,12 @@
 
 <body>
 
-    <div class="container">
-
-        <div class="boxs">
-            <div class="box">
-                <a href="locacao.php?data=<?php echo $_SESSION['data'] ?>" id="a"> voltar </a>
-                <h1>Sistema de Agendamento</h1>
+<div class="container">
+        <div class="box3">
+            <div class="box"> <a href="locacao.php?data=<?php echo $_SESSION['data'] ?>" id="a"> voltar </a></div>
+            <div class="box1">
+            <img src="logo.png">
+                <h3>Sistema de Agendamento</h3>
                 <h2>Adicionar Novo Usuário</h2>
                 <form method="POST" action="cd_user.php">
 
@@ -41,6 +41,7 @@
                     <button type="submit">Cadastrar</button>
                     <p id="div" style="margin-left: 20px"></p>
                 </form>
+                </div>
             </div>
         </div>
     </div>

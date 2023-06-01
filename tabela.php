@@ -33,8 +33,11 @@ if (mysqli_query($conn, $sql) && mysqli_query($conn, $sqle)  && mysqli_query($co
     echo "Tabela criada com sucesso <br>";
 
     $sqladm = "INSERT INTO logim (logtype, logim, senha) VALUES (true, 'admin', '')";
+    $sqlquip = "INSERT INTO equipamento (equip) VALUES ('este computador')";
     if  (mysqli_query($conn, $sqladm)){
+        if  (mysqli_query($conn, $sqlquip)){
 echo "usuario: admin <br> senha: ";
+        }
     }
 } else {
     echo "Erro ao criar tabela" + mysqli_error($conexao);
