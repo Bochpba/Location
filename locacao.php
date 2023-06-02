@@ -18,7 +18,6 @@
   <br><br>
   <a href="new_user.php"> Adicionar Usuários </a>
   <br><br>
-  <a href="tb_professores.php"> Modificar Professores </a> <br>
   <a href="tb_equipamento.php"> Modificar Equipamento </a>
   <br><br>
   <a href="consulta_equipamento.php"> Consultar Equipamento Por Nome </a>
@@ -50,8 +49,11 @@
   ?>
   <form method="GET" action="locacao.php">
     <input type="date" value="<?php echo $_GET['data'] ?>" name="data" required>
-    <input type="submit" value="Salvar">
+    <input type="submit" value="Selecionar data">
   </form>
+  <br>
+  <a href="tb_professores.php"> Editar Professores </a> <br>
+  <br>
   <?php
   while ($rowp = mysqli_fetch_assoc($resultp)) {
     if ($rowp["datae"] == $_GET["data"]) {
