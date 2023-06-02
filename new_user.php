@@ -10,10 +10,14 @@
     <?php
     session_start();
     if ($_SESSION['yes'] == true) {
-        echo "<br>Seu login e senha foram cadastrados.";
+        echo "<script>
+        alert('Seu login e senha foram cadastrados.')
+        </script>";
         $_SESSION['yes'] = false;
     } else if ($_SESSION['no'] == true) {
-        echo "Erro ao cadastrar login e senha.";
+        echo "<script>
+        alert('Erro de cadastro.')
+        </script>";
         $_SESSION['no'] = false;
     }
     ?>
@@ -25,7 +29,7 @@
         <div class="box3">
             <div class="box"></div>
             <div class="box1">
-            <div  <a href="locacao.php?data=<?php echo $_SESSION['data'] ?>" id="a"> X </a></div>
+            <div>  <a href="locacao.php?data=<?php echo $_SESSION['data'] ?>" id="a"> X </a></div>
             <img src="logo.png">
                 <h3>Sistema de Agendamento</h3>
                 <h2>Adicionar Novo Usuário</h2>
