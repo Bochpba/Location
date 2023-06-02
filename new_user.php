@@ -23,8 +23,9 @@
 
 <div class="container">
         <div class="box3">
-            <div class="box"> <a href="locacao.php?data=<?php echo $_SESSION['data'] ?>" id="a"> voltar </a></div>
+            <div class="box"></div>
             <div class="box1">
+            <div  <a href="locacao.php?data=<?php echo $_SESSION['data'] ?>" id="a"> X </a></div>
             <img src="logo.png">
                 <h3>Sistema de Agendamento</h3>
                 <h2>Adicionar Novo Usuário</h2>

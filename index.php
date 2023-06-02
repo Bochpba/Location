@@ -7,12 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="login.css" />
     <title>Document</title>
-    
 </head>
 <?php
 session_start();
-
-
 ?>
 <body>
     <div class="container">
@@ -25,23 +22,19 @@ session_start();
                 <input type="text" id="login" name="login" value="" placeholder=" Nome de Usuário"><br><br>
                 <input type="password" id="senha" name="senha" value="" placeholder=" Senha..."><br><br>
                 <button type="submit">Login</button>
+                <p id="div" style="margin-left: 20px;"></p>
             </form>
-            <text id="div" style="margin-left: 20px;"></text>
+    <?php
+       if (isset($_SESSION['bool'])){
+        if($_SESSION['bool'] != null){
+            echo "Login ou senha incorretos.";
+            $_SESSION['bool'] = null;
+        }
+    }
+    ?>
 </div>
 </div>
 </div>
-<?php
-
-if (isset($_SESSION['bool'])){
-if ($_SESSION['bool'] == true){
-echo "
-<script>
-document.getElementById('div').innerHTML = 'Login ou senha incorretos';
-</script>
-";
-$_SESSION['bool'] = false;
-}
-}
-?>
+    
   </body>
 </html>

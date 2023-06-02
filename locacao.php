@@ -21,7 +21,6 @@
   <a href="tb_professores.php"> Modificar Professores </a> <br>
   <a href="tb_equipamento.php"> Modificar Equipamento </a>
   <br><br>
-  <a href="consulta_professor.php"> Consultar Professor Por Nome </a> <br>
   <a href="consulta_equipamento.php"> Consultar Equipamento Por Nome </a>
   <br><br>
 
@@ -43,7 +42,6 @@
     header("location: logout.php");
   }
 
-  echo $_SESSION['vald'];
   $sqle = "SELECT * FROM equipamento";
   $result = mysqli_query($conn, $sqle);
 

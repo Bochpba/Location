@@ -71,7 +71,7 @@ h1 {
 }
 
 a {
-    margin-left: 40%;
+    margin-left: 90%;
     color:black;
 }
 
@@ -90,4 +90,8 @@ h2{
 
 h3{
     padding-bottom: 0%;
+ }
+
+ img{
+    padding-left: 10%;
  }
