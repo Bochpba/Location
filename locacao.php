@@ -68,6 +68,7 @@
   }
 
   ?>
+  <h1> <?php echo $_GET['data']?> </h1>
   <table border=1 cellspacing="0" id="list">
     <tr>
       <th>Equipamentos</th>
