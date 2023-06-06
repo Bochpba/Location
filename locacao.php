@@ -15,6 +15,8 @@
 </head>
 
 <body>
+  <div class="container">
+    <div class="box3">
   <div class="navigation">
    <a href="logout.php"> Logout </a>
    <br><br>
@@ -52,11 +54,15 @@
   $sqlp = "SELECT * FROM professores ORDER BY aula, position";
   $resultp = mysqli_query($conn, $sqlp);
   ?>
+  
+  <div class="table" >
+
+  <h1> <?php echo $_GET['data']?> </h1>
   <form method="GET" action="locacao.php">
-    <input type="date" value="<?php echo $_GET['data'] ?>" name="data" required>
-    <input type="submit" value="Selecionar data">
+    <input class="data" type="date" value="<?php echo $_GET['data'] ?>" name="data" required>
+    <input class="submit" type="submit" value="Selecionar data">
   </form>
-  <br>
+  
  
   <?php
   while ($rowp = mysqli_fetch_assoc($resultp)) {
@@ -72,7 +78,7 @@
   }
 
   ?>
-  <h1> <?php echo $_GET['data']?> </h1>
+  
   <table border=1 cellspacing="0" id="list">
     <tr>
       <th>Equipamentos</th>
@@ -116,6 +122,9 @@
     ?>
 
   </table>
+  </div>
+  </div>
+  </div>
 </body>
 
 </html>
