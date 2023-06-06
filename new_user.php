@@ -35,7 +35,7 @@
                 <h2>Adicionar Novo Usuário</h2>
                 <form method="POST" action="cd_user.php">
 
-                    <input type="text" id="user" name="user" value="" placeholder="Nome de Usuário"><br><br>
+                    <input type="text" id="login" name="user" value="" placeholder="Nome de Usuário"><br><br>
 
                     <input type="password" id="senha" name="senha" value="" placeholder="Senha"><br><br>
 
