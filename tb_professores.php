@@ -98,8 +98,11 @@
           </tbody>
           <?php
         }
+       
       }
-
+      if (($_SESSION['data']) == null){
+        echo "<script> alert('Selecione uma data!') </script>";
+      }
       ?>
       <tr>
         <td>
