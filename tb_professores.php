@@ -45,6 +45,7 @@
 
 <body>
 <a id="return" href="locacao.php?data=<?php echo $_SESSION['data'] ?>"> <img src="voltar.png" width="50px"> </a>
+<div class="container">
   <h2> Data:
     <?php echo $_SESSION['data']; ?>
   </h2>

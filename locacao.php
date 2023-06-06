@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="locacao.css" />
   <style>
     div {
       display: inline;
@@ -14,14 +15,18 @@
 </head>
 
 <body>
-  <a href="logout.php"> Logout </a>
-  <br><br>
-  <a href="new_user.php"> Adicionar Usuários </a>
-  <br><br>
-  <a href="tb_equipamento.php"> Modificar Equipamento </a>
-  <br><br>
-  <a href="consulta_equipamento.php"> Consultar Equipamento Por Nome </a>
-  <br><br>
+  <div class="navigation">
+   <a href="logout.php"> Logout </a>
+   <br><br>
+   <a href="new_user.php"> Adicionar Usuários </a>
+   <br><br>
+   <a href="tb_equipamento.php"> Modificar Equipamento </a>
+   <br><br>
+   <a href="consulta_equipamento.php"> Consultar Equipamento Por Nome </a>
+   <br><br>
+   <a href="tb_professores.php"> Editar Professores </a>
+   <br><br>
+  </div>
 
   <?php
   include "conexao.php";
@@ -52,8 +57,7 @@
     <input type="submit" value="Selecionar data">
   </form>
   <br>
-  <a href="tb_professores.php"> Editar Professores </a> <br>
-  <br>
+ 
   <?php
   while ($rowp = mysqli_fetch_assoc($resultp)) {
     if ($rowp["datae"] == $_GET["data"]) {
@@ -112,7 +116,6 @@
     ?>
 
   </table>
-  </div>
 </body>
 
 </html>

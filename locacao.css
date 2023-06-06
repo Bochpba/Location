@@ -1,0 +1,14 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #2d2d2d;
+}
+.navigation{
+    position: relative;
+    height: 500px;
+    background: #1aa531;
+    width: 300px;
+    box-shadow: 10px 0 0 #1aa531;
+}
