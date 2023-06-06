@@ -44,6 +44,7 @@
   }
 
   ?>
+    <a href="tb_equipamento.php?data=<?php echo $_SESSION['data'] ?>"> voltar </a>
   <form action="atualizare.php" method="get" align="center">
     <label> Insira o novo equipamento :</label>
     <input type="text" name="name" value="<?php echo "$nome" ?>">

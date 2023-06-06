@@ -92,7 +92,7 @@
                 <?php echo "<a href='del_professor.php?del=" . $row["id_prof"] . "'> excluir </a>" . "<br>"; ?>
               </td>
               <td>
-                <?php echo "<a href='at_nome.php?atu=" . $row["id_prof"] . "'> atualizar </a>" . "<br>"; ?>
+                <?php echo "<a href='at_nome.php?atu=" . $row["id_prof"] ."'> atualizar </a>" . "<br>"; ?>
               </td>
             </tr>
           </tbody>

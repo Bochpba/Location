@@ -9,6 +9,7 @@
 </head>
 
 <body>
+
   <?php
   include("conexao.php");
   session_start();
@@ -29,20 +30,20 @@
 
   $idup = $_GET['atu'];
 
-  $sql = "SELECT * FROM professores WHERE id_prof = '$idup'";
+  $sql = "SELECT * FROM professores  INNER JOIN equipamento ON equipamento.id_equip = professores.position WHERE id_prof = '$idup'";
   $result = mysqli_query($conn, $sql);
 
   $sqlp = "SELECT * FROM equipamento";
   $resultp = mysqli_query($conn, $sqlp);
 
-  if ($result) {
-
     while ($row = mysqli_fetch_assoc($result)) {
       $id_prof = $row["id_prof"];
       $nome = $row["nome"];
+      $equip = $row["equip"];
+      $aula = $row['aula'];
     }
-  }
   ?>
+  <a href="tb_professores.php?data=<?php echo $_SESSION['data'] ?>"> voltar </a>
   <br>
   <form action="atualizar.php" method="get" align="center">
     <label> Insira o novo nome :</label>
@@ -50,6 +51,7 @@
     <br>
     <label> Insira o equipamento :</label>
     <select name="position">
+    <option value="" disabled selected><?php echo $equip ?></option>
       <?php
       while ($rowp = mysqli_fetch_array($resultp)) { ?>
         <option value="<?php echo $rowp["id_equip"]; ?>"><?php echo $rowp["equip"]; ?></option>
@@ -60,6 +62,7 @@
     <br>
     <label> Insira a aula :</label>
     <select name="aula">
+    <option value="" disabled selected>Aula <?php echo $aula ?></option>
       <option value=1>Aula 1</option>
       <option value=2>Aula 2</option>
       <option value=3>Aula 3</option>
