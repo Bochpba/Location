@@ -28,7 +28,7 @@
 </head>
 
 <body>
-  <a href="locacao.php?data=<?php echo $_SESSION['data'] ?>"> voltar </a>
+  <a id = "return" href="locacao.php?data=<?php echo $_SESSION['data'] ?>"> <img src="voltar.png" width="50px"> </a>
   <div>
     <table border=1 cellspacing="0">
       <thead>

@@ -27,7 +27,7 @@
 
 <div class="container">
         <div class="box3">
-            <div class="box"> <a href="locacao.php?data=<?php echo $_SESSION['data'] ?>" id="a"> X </a></div>
+            <div class="box"> <a href="locacao.php?data=<?php echo $_SESSION['data'] ?>" id="return"> <img src="voltar.png" width="50px"> </a></div>
             <div class="box1">
             <div>  </div>
             <img src="logo.png">

@@ -27,7 +27,7 @@ if (!$found) {
 </head>
 
 <body>
-    <a href="locacaoprof.php?data=<?php echo $_SESSION['data'] ?>"> voltar </a>
+    <a href="locacaoprof.php?data=<?php echo $_SESSION['data'] ?>"> <img src="voltar.png" width="50px"> </a>
     <h1> Consulta equipamento por nome </h1>
     <form method="GET" action="busca_accprof.php">
         <input id="keyword" name="equip" type="text" />

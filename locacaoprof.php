@@ -36,8 +36,6 @@
   if (!$found) {
     header("location: logout.php");
   }
-
-  echo $_SESSION['vald'];
   $sqle = "SELECT * FROM equipamento";
   $result = mysqli_query($conn, $sqle);
 
