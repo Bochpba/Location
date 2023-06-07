@@ -5,12 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="tabela.css">
   <title>Document</title>
-  <style>
-    div {
-      display: inline;
-    }
-  </style>
 
   <script>
     <?php
@@ -44,12 +40,16 @@
 </head>
 
 <body>
-<a id="return" href="locacao.php?data=<?php echo $_SESSION['data'] ?>"> <img src="voltar.png" width="50px"> </a>
+
 <div class="container">
-  <h2> Data:
+  <div class="box3">
+  <div class="box"> <a id="return" href="locacao.php?data=<?php echo $_SESSION['data'] ?>"> <img src="voltar.png" width="50px"> </a></div>
+    <div class="box1">
+      <div class="table">
+<h2> Data:
     <?php echo $_SESSION['data']; ?>
   </h2>
-  <div>
+ 
     <table border=1 cellspacing="0">
       <thead>
         <tr>
@@ -61,6 +61,7 @@
           <th> Atualizar </th>
         </tr>
       </thead>
+
       <?php
       $sql = "SELECT * FROM equipamento INNER JOIN professores ON equipamento.id_equip = professores.position ORDER BY aula";
       $result = mysqli_query($conn, $sql);
@@ -90,10 +91,10 @@
                 ?>
               </td>
               <td>
-                <?php echo "<a href='del_professor.php?del=" . $row["id_prof"] . "'> excluir </a>" . "<br>"; ?>
+                <?php echo "<a href='del_professor.php?del=" . $row["id_prof"] . "'> DELETAR </a>" . "<br>"; ?>
               </td>
               <td>
-                <?php echo "<a href='at_nome.php?atu=" . $row["id_prof"] ."'> atualizar </a>" . "<br>"; ?>
+                <?php echo "<a href='at_nome.php?atu=" . $row["id_prof"] ."'> ATUALIZAR </a>" . "<br>"; ?>
               </td>
             </tr>
           </tbody>
@@ -146,7 +147,10 @@
       </tr>
       </tr>
     </table>
-  </div>
+          </div>
+          </div>
+          </div>
+          </div>
 </body>
 
 </html>

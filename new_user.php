@@ -29,7 +29,7 @@
         <div class="box3">
             <div class="box"> <a href="locacao.php?data=<?php echo $_SESSION['data'] ?>" id="return"> <img src="voltar.png" width="50px"> </a></div>
             <div class="box1">
-            <div>  </div>
+            
             <img src="logo.png">
                 <h3>Sistema de Agendamento</h3>
                 <h2>Adicionar Novo Usuário</h2>

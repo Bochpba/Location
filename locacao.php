@@ -18,16 +18,16 @@
   <div class="container">
     <div class="box3">
   <div class="navigation">
-   <a href="logout.php"> Logout </a>
-   <br><br>
-   <a href="new_user.php"> Adicionar Usuários </a>
-   <br><br>
-   <a href="tb_equipamento.php"> Modificar Equipamento </a>
-   <br><br>
-   <a href="consulta_equipamento.php"> Consultar Equipamento Por Nome </a>
-   <br><br>
-   <a href="tb_professores.php"> Editar Professores </a>
-   <br><br>
+  <a href="tb_professores.php"> <button id="edit">Realizar locação</button> </a>
+ 
+   <a href="new_user.php"> <button>Adicionar Usuários </button> </a>
+  
+   <a href="tb_equipamento.php"> <button>Modificar Equipamento</button> </a>
+  
+   <a href="consulta_equipamento.php"> <button>Consultar Equipamento Por Nome</button> </a>
+   
+   <a href="logout.php"> <button id="logout"> Logout </button> </a>
+   
   </div>
 
   <?php

@@ -1,8 +1,13 @@
 body{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #fdedc8;
     margin: 0px;
 }
-
-.container {
+.container{
     width: 100vw;
     height: 100vh;
     background: #fdedc8;
@@ -13,69 +18,87 @@ body{
 
     
 }
-
-button{
-    cursor: pointer;
-    background-color: #ff871e;
-    border: 0px;
-    width: 100px;
-    height: 35px;
-    font-weight: bold;
-    justify-content: center;
-    
-
-}
-button:hover{
-    background: #ffa352;
-}
-
 .box3{
     display: flex; 
     -webkit-box-shadow: -30px 30px 10px 1px rgba(96, 88, 78, 0.75);
     -moz-box-shadow: -30px 30px 10px 1px rgba(96, 88, 78, 0.75);
     box-shadow: -30px 30px 10px 1px rgba(96, 88, 78, 0.75);
+    height: auto;
 }
-
 .box {
     width: 200px;
-    height: 600px;
+    height: auto;
     background: #ff871e;
     
 }
-
 .box1{
     width: 800px;
     height: 600px;
     background: #dbdbdb;
     text-align: center;
+    justify-content: center;
+    align-items: center;
 }
-
-.box1 input{
-    background-color: #bbbbbb;
-    border: 0px;
-    border-radius: 60px;
-    height: 45px;
+.navigation{
+    position: relative;
+    height: auto;
+    background: #ff871e;
     width: 300px;
-    font-weight: bold
+    text-align: center;
     
 }
+.navigation a{
+    
+    
+    margin-left: 0%;
+    color: black;
+    font-weight: bold;
+}
 
-h1 {
-    text-align: center;
-    padding-top: 5%;
-    padding-bottom: 30px;
+.table{
+    background: #dbdbdb;
+    display:block;
     height: auto;
-    width: auto;
-}
-
-.box1 img{
-    width: 200px;
-    height: 200px;
     justify-content: center;
-    padding-top: 5%;
+    align-items: center;
+    text-align: center;
+    margin-left: 8% ;
+    padding-bottom: 30px;
+    margin-bottom:20%;
 }
-
-a {
+.table table{
+    height: 80%;
+    background-color: #ffffff;
+}
+.table input {
+   
+    text-align: center;
+    font-size: larger;
+    cursor: pointer;
+}
+.table a{
     color:black;
 }
+th{
+    background-color: #ff871e;
+}
+button{
+    border-style: solid;
+   
+    border-color: #472100;
+  
+    background-color: #b95e0e;
+    cursor: pointer;
+ 
+}
+button:hover { 
+    background-color: #6d3401; 
 
+    transition: 0.5s;
+    
+    opacity: 0.7;
+    }
+    #return {
+        margin-left: 40%;
+        color:black;
+    }
