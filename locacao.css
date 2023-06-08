@@ -86,7 +86,58 @@ button:hover {
     }
 #edit{
     background-color: #ffdaab;
+    background-image: url("add.png");
+    background-position:left;
+    position: left;
+    padding-top: 2px;
+    padding-left: 30px;
+    background-size: 40px;
+    background-repeat: no-repeat;
 }
 #logout{
     margin-top: 58%;
+    background-image: url("voltar.png");
+    background-position:left;
+    position: left;
+    padding-top: 2px;
+    padding-left: 30px;
+    background-size: 40px;
+    background-repeat: no-repeat;
+}
+#useradd{
+    background-image: url("usuariob.png");
+    background-position:left;
+    position: left;
+    padding-top: 2px;
+    padding-left: 30px;
+    background-size: 40px;
+    background-repeat: no-repeat;
+}
+#pesquisa{
+    background-image: url("pesquisa.png");
+    background-position:left;
+    position: left;
+    padding-top: 2px;
+    padding-left: 30px;
+    background-size: 40px;
+    background-repeat: no-repeat;
+}
+#modify{
+    background-image: url("edit.png");
+    background-position:left;
+    position: left;
+    padding-top: 2px;
+    padding-left: 30px;
+    background-size: 40px;
+    background-repeat: no-repeat;
+}
+#logoutp{
+    margin-top: 140%;
+    background-image: url("voltar.png");
+    background-position:left;
+    position: left;
+    padding-top: 2px;
+    padding-left: 30px;
+    background-size: 40px;
+    background-repeat: no-repeat;
 }

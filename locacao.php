@@ -20,11 +20,11 @@
   <div class="navigation">
   <a href="tb_professores.php"> <button id="edit">Realizar locação</button> </a>
  
-   <a href="new_user.php"> <button>Adicionar Usuários </button> </a>
+   <a href="new_user.php"> <button id="useradd">Adicionar Usuários </button> </a>
   
-   <a href="tb_equipamento.php"> <button>Modificar Equipamento</button> </a>
+   <a href="tb_equipamento.php"> <button id="modify">Modificar Equipamento</button> </a>
   
-   <a href="consulta_equipamento.php"> <button>Consultar Equipamento Por Nome</button> </a>
+   <a href="consulta_equipamento.php"> <button id="pesquisa">Consultar Equipamento Por Nome</button> </a>
    
    <a href="logout.php"> <button id="logout"> Logout </button> </a>
    

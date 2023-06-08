@@ -18,10 +18,10 @@
 <div class="container">
     <div class="box3">
   <div class="navigation">
-  <a href="logout.php"> <button>Logout </button></a>
-  <br><br>
-  <a href="consulta_accprof.php"> <button>Consultar Equipamento Por Nome</button> </a>
-  <br><br>
+  
+  <a href="consulta_accprof.php"> <button id="pesquisa">Consultar Equipamento Por Nome</button> </a>
+
+  <a href="logout.php"> <button id="logoutp">Logout </button></a>
   </div>
   <?php
   include "conexao.php";
