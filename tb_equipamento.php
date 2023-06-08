@@ -29,8 +29,14 @@
 </head>
 
 <body>
+  <div class="container">
+    <div class="box3"> 
+    <div class="box">
   <a id = "return" href="locacao.php?data=<?php echo $_SESSION['data'] ?>"> <img src="voltar.png" width="50px"> </a>
-  <div>
+  </div>
+  <div class="box1">
+    <br>
+  <div class="table">
     <table border=1 cellspacing="0">
       <thead>
         <tr>
@@ -120,7 +126,9 @@
       </form>
       </tr>
     </table>
-
+  </div>
+  </div>
+  </div>
   </div>
 </body>
 

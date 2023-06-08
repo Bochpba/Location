@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="tabela.css">
   <title>Document</title>
   <style>
     div {
@@ -29,10 +30,14 @@
 </head>
 
 <body>
-
-  <a href="locacaoprof.php?data=<?php echo $_SESSION['data'] ?>"> voltar </a>
-
-  <div>
+<div class="container">
+<div class="box3">
+<div class="box">
+  <a href="consulta_accprof.php?data=<?php echo $_SESSION['data'] ?>"> <img src="voltar.png" width="50px"> </a>
+  </div>
+  <div class="box1">
+    <br>
+  <div class="table">
     <table border=1 cellspacing="0">
       <thead>
         <tr>
@@ -62,8 +67,7 @@
       }
 
       $equip = $_GET['equip'];
-
-      $sql = "SELECT * FROM equipamento INNER JOIN professores ON equipamento.id_equip = professores.position WHERE equip = '$equip'";
+      $sql = "SELECT * FROM equipamento INNER JOIN professores ON equipamento.id_equip = professores.position WHERE equip like '%$equip%'";
       $result = mysqli_query($conn, $sql);
 
           while ($row = mysqli_fetch_assoc($result)) {
@@ -92,7 +96,9 @@
       ?>
 
     </table>
-
+    </div>
+    </div>
+    </div>
   </div>
 </body>
 

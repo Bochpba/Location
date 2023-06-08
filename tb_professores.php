@@ -43,7 +43,9 @@
 
 <div class="container">
   <div class="box3">
-  <div class="box"> <a id="return" href="locacao.php?data=<?php echo $_SESSION['data'] ?>"> <img src="voltar.png" width="50px"> </a></div>
+  <div class="box"> 
+    <a id="return" href="locacao.php?data=<?php echo $_SESSION['data'] ?>"> <img src="voltar.png" width="50px"> </a>
+  </div>
     <div class="box1">
       <div class="table">
 <h2> Data:
@@ -141,7 +143,7 @@
         <td></td>
       <tr>
         <td>
-          <input type="submit" value="ADD">
+          <input type="submit" value="Salvar">
           </form>
         </td>
       </tr>

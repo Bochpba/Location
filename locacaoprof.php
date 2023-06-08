@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="locacao.css" />
   <style>
     div {
       display: inline;
@@ -14,11 +15,14 @@
 </head>
 
 <body>
-  <a href="logout.php"> Logout </a>
+<div class="container">
+    <div class="box3">
+  <div class="navigation">
+  <a href="logout.php"> <button>Logout </button></a>
   <br><br>
-  <a href="consulta_accprof.php"> Consultar Equipamento Por Nome </a>
+  <a href="consulta_accprof.php"> <button>Consultar Equipamento Por Nome</button> </a>
   <br><br>
-
+  </div>
   <?php
   include "conexao.php";
   include "arrays.php";
@@ -42,9 +46,12 @@
   $sqlp = "SELECT * FROM professores ORDER BY aula, position";
   $resultp = mysqli_query($conn, $sqlp);
   ?>
+  <div class="table" >
+  <h1> <?php echo $_GET['data']?> </h1>
+
   <form method="GET" action="locacaoprof.php">
     <input type="date" value="<?php echo $_GET['data'] ?>" name="data" required>
-    <input type="submit" value="Salvar">
+    <input type="submit" value="Selecionar data">
   </form>
   <?php
   while ($rowp = mysqli_fetch_assoc($resultp)) {
@@ -102,6 +109,9 @@
     $_SESSION['no'] = null;
     ?>
   </table>
+  </div>
+  </div>
+  
   </div>
 </body>
 

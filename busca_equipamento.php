@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="tabela.css">
   <title>Document</title>
   <style>
     div {
@@ -29,10 +30,14 @@
 </head>
 
 <body>
-
-  <a href="locacao.php?data=<?php echo $_SESSION['data'] ?>"> voltar </a>
-
-  <div>
+<div class="container">
+  <div class="box3">
+    <div class="box">
+    <a id="return" href="consulta_equipamento.php?data=<?php echo $_SESSION['data'] ?>"> <img src="voltar.png" width="50px"> </a>
+  </div>
+  <div class="box1">
+    <br>
+    <div class="table">
     <table border=1 cellspacing="0">
       <thead>
         <tr>
@@ -133,6 +138,9 @@
     </table>
 
   </div>
+  </div>
+  </div>
+    </div>
 </body>
 
 </html>
