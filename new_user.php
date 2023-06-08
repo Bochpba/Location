@@ -8,7 +8,11 @@
     <link rel="stylesheet" href="login.css">
     <title>Document</title>
     <?php
+  include "conexao.php";
+    
     session_start();
+
+    include "pass.php";
     if ($_SESSION['yes'] == true) {
         echo "<script>
         alert('Seu login e senha foram cadastrados.')

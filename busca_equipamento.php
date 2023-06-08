@@ -16,6 +16,9 @@
   <script>
     <?php
     session_start();
+     
+     
+    
     $msg = $_SESSION['msg'];
 
     if ($msg == true) {
@@ -52,25 +55,13 @@
       </thead>
       <?php
       include "conexao.php";
-
+      include "pass.php";
       $equip = $_GET['equip'];
 
       $sql = "SELECT id_equip, equip, marca, modelo, cor FROM equipamento WHERE equip like '%$equip%'";
       $result = mysqli_query($conn, $sql);
 
-      $sqli = "SELECT * FROM logim";
-      $pass = mysqli_query($conn, $sqli);
-
-      $found = false;
-      while ($logar = mysqli_fetch_assoc($pass)) {
-        if ($_SESSION['vald'] == $logar['logim']) {
-          $found = true;
-          break;
-        }
-      }
-      if (!$found) {
-        header("location: index0.php");
-      }
+    
 
       if ($result) {
 

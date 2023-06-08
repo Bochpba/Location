@@ -26,7 +26,8 @@
   <?php
   include "conexao.php";
   include "arrays.php";
-
+  include "pass.php";
+  
   $sqli = "SELECT * FROM logim";
   $pass = mysqli_query($conn, $sqli);
 

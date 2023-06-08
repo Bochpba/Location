@@ -33,20 +33,7 @@
   <?php
   include "conexao.php";
   include "arrays.php";
-
-  $sqli = "SELECT * FROM logim";
-  $pass = mysqli_query($conn, $sqli);
-
-  $found = false;
-  while ($logar = mysqli_fetch_assoc($pass)) {
-    if ($_SESSION['vald'] == $logar['logim']) {
-      $found = true;
-      break;
-    }
-  }
-  if (!$found) {
-    header("location: logout.php");
-  }
+  include "pass.php";
 
   $sqle = "SELECT * FROM equipamento";
   $result = mysqli_query($conn, $sqle);

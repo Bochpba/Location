@@ -10,6 +10,7 @@
 </head>
 <?php
 session_start();
+$_SESSION['vald'] = 0;
 ?>
 <body>
     <div class="container">

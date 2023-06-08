@@ -51,21 +51,8 @@
       </thead>
       <?php
       include "conexao.php";
-
-      $sqli = "SELECT * FROM logim";
-      $pass = mysqli_query($conn, $sqli);
-
-      $found = false;
-      while ($logar = mysqli_fetch_assoc($pass)) {
-        if ($_SESSION['vald'] == $logar['logim']) {
-          $found = true;
-          break;
-        }
-      }
-      if (!$found) {
-        header("location: index0.php");
-      }
-
+      include "pass.php";
+      
       $equip = $_GET['equip'];
       $sql = "SELECT * FROM equipamento INNER JOIN professores ON equipamento.id_equip = professores.position WHERE equip like '%$equip%'";
       $result = mysqli_query($conn, $sql);

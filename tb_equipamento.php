@@ -51,22 +51,12 @@
       </thead>
       <?php
       include "conexao.php";
-      $sqli = "SELECT * FROM logim";
-      $pass = mysqli_query($conn, $sqli);
-
+      include "pass.php";
+      
       $sql = "SELECT * FROM equipamento";
       $result = mysqli_query($conn, $sql);
 
-      $found = false;
-      while ($logar = mysqli_fetch_assoc($pass)) {
-        if ($_SESSION['vald'] == $logar['logim']) {
-          $found = true;
-          break;
-        }
-      }
-      if (!$found) {
-        header("location: index0.php");
-      }
+
 
       while ($row = mysqli_fetch_assoc($result)) {
         ?>
