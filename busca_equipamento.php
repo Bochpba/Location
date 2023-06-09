@@ -16,9 +16,7 @@
   <script>
     <?php
     session_start();
-     
-     
-    
+
     $msg = $_SESSION['msg'];
 
     if ($msg == true) {
@@ -33,105 +31,120 @@
 </head>
 
 <body>
-<div class="container">
-  <div class="box3">
-    <div class="box">
-    <a id="return" href="consulta_equipamento.php?data=<?php echo $_SESSION['data'] ?>"> <img src="voltar.png" width="50px"> </a>
-  </div>
-  <div class="box1">
-    <br>
-    <div class="table">
-    <table border=1 cellspacing="0">
-      <thead>
-        <tr>
-          <th> ID </th>
-          <th> Equipamentos </th>
-          <th> Marca </th>
-          <th> Modelo </th>
-          <th> Cor </th>
-          <th> Deletar </th>
-          <th> Atualizar </th>
-        </tr>
-      </thead>
-      <?php
-      include "conexao.php";
-      include "pass.php";
-      $equip = $_GET['equip'];
+  <div class="container">
+    <div class="box3">
+      <div class="box">
+        <a id="return" href="consulta_equipamento.php?data=<?php echo $_SESSION['data'] ?>"> <img src="voltar.png"
+            width="50px"> </a>
+      </div>
+      <div class="box1">
+        <br>
+        <div class="table">
+          <table border=1 cellspacing="0">
+            <thead>
+              <tr>
+                <th> ID </th>
+                <th> Equipamentos </th>
+                <th> Marca </th>
+                <th> Modelo </th>
+                <th> Cor </th>
+                <th> Deletar </th>
+                <th> Atualizar </th>
+              </tr>
+            </thead>
+            <?php
+            include "conexao.php";
 
-      $sql = "SELECT id_equip, equip, marca, modelo, cor FROM equipamento WHERE equip like '%$equip%'";
-      $result = mysqli_query($conn, $sql);
+            $sqli = "SELECT * FROM logim";
+            $pass = mysqli_query($conn, $sqli);
 
-    
+            $found = false;
+            while ($logar = mysqli_fetch_assoc($pass)) {
+              if ($_SESSION['vald'] == $logar['logim']) {
+                $found = true;
+                break;
+              }
+            }
+            if (!$found) {
+              header("location: index.php");
+            }
 
-      if ($result) {
+            $equip = $_GET['equip'];
 
-        while ($row = mysqli_fetch_assoc($result)) {
+            $sql = "SELECT id_equip, equip, marca, modelo, cor FROM equipamento WHERE equip like '%$equip%'";
+            $result = mysqli_query($conn, $sql);
 
 
-          ?>
-          <tbody>
+
+            if ($result) {
+
+              while ($row = mysqli_fetch_assoc($result)) {
+
+
+                ?>
+                <tbody>
+                  <tr>
+                    <td>
+                      <?php echo $row["id_equip"] ?>
+                    </td>
+                    <td>
+                      <?php echo $row["equip"] ?>
+                    </td>
+                    <td>
+                      <?php echo $row["marca"] ?>
+                    </td>
+                    <td>
+                      <?php echo $row["modelo"] ?>
+                    </td>
+                    <td>
+                      <?php echo $row["cor"] ?>
+                    </td>
+                    <td>
+                      <?php echo "<a href='del_equip.php?del=" . $row["id_equip"] . "'> excluir </a>" . "<br>"; ?>
+                    </td>
+                    <td>
+                      <?php echo "<a href='at_equip.php?atu=" . $row["id_equip"] . "'> atualizar </a>" . "<br>"; ?>
+                    </td>
+                  </tr>
+                </tbody>
+
+                <?php
+              }
+
+            }
+            ?>
             <tr>
               <td>
-                <?php echo $row["id_equip"] ?>
+                <input type="hidden" name="id" value="">
               </td>
               <td>
-                <?php echo $row["equip"] ?>
+                <form action="add_equip.php" method="get">
+                  <input type="text" name="equip" value="">
               </td>
               <td>
-                <?php echo $row["marca"] ?>
+                <input type="text" name="marca" value="">
               </td>
               <td>
-                <?php echo $row["modelo"] ?>
+                <input type="text" name="modelo" value="">
               </td>
               <td>
-                <?php echo $row["cor"] ?>
+                <input type="text" name="cor" value="">
               </td>
+              <td></td>
+              <td></td>
+            <tr>
               <td>
-                <?php echo "<a href='del_equip.php?del=" . $row["id_equip"] . "'> excluir </a>" . "<br>"; ?>
-              </td>
-              <td>
-                <?php echo "<a href='at_equip.php?atu=" . $row["id_equip"] . "'> atualizar </a>" . "<br>"; ?>
+                <input type="submit" value="ADD">
               </td>
             </tr>
-          </tbody>
+            </form>
+            </tr>
+          </table>
 
-          <?php
-        }
-
-      }
-      ?>
-      <tr>
-        <td>
-          <input type="hidden" name="id" value="">
-        </td>
-        <td>
-          <form action="add_equip.php" method="get">
-            <input type="text" name="equip" value="">
-        </td>
-        <td>
-          <input type="text" name="marca" value="">
-        </td>
-        <td>
-          <input type="text" name="modelo" value="">
-        </td>
-        <td>
-          <input type="text" name="cor" value="">
-        </td>
-        <td></td>
-        <td></td>
-      <tr>
-        <td>
-          <input type="submit" value="ADD">
-        </td>
-      </tr>
-      </form>
-      </tr>
-    </table>
-
-  </div>
-  </div>
-  </div>
+        </div>
+      </div>
     </div>
+  </div>
 </body>
 
 </html>

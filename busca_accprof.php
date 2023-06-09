@@ -16,7 +16,8 @@
   <script>
     <?php
     session_start();
-    $msg == $_SESSION['msg'];
+
+    $msg = $_SESSION['msg'];
 
     if ($msg = true) {
       ?>
@@ -30,61 +31,74 @@
 </head>
 
 <body>
-<div class="container">
-<div class="box3">
-<div class="box">
-  <a href="consulta_accprof.php?data=<?php echo $_SESSION['data'] ?>"> <img src="voltar.png" width="50px"> </a>
-  </div>
-  <div class="box1">
-    <br>
-  <div class="table">
-    <table border=1 cellspacing="0">
-      <thead>
-        <tr>
-          <th> ID </th>
-          <th> Equipamentos </th>
-          <th> Professor </th>
-          <th> Aula </th>
-          <th> Data </th>
-
-        </tr>
-      </thead>
-      <?php
-      include "conexao.php";
-      include "pass.php";
-      
-      $equip = $_GET['equip'];
-      $sql = "SELECT * FROM equipamento INNER JOIN professores ON equipamento.id_equip = professores.position WHERE equip like '%$equip%'";
-      $result = mysqli_query($conn, $sql);
-
-          while ($row = mysqli_fetch_assoc($result)) {
-            ?>
-            <tbody>
+  <div class="container">
+    <div class="box3">
+      <div class="box">
+        <a href="consulta_accprof.php?data=<?php echo $_SESSION['data'] ?>"> <img src="voltar.png" width="50px"> </a>
+      </div>
+      <div class="box1">
+        <br>
+        <div class="table">
+          <table border=1 cellspacing="0">
+            <thead>
               <tr>
-                <td>
-                  <?php echo $row["id_equip"] ?>
-                </td>
-                <td>
-                  <?php echo $row["equip"] ?>
-                </td>
-                <td>
-                  <?php echo $row["nome"] ?>
-                </td>
-                <td>
-                  <?php echo $row["aula"] ?>
-                </td>
-                <td>
-                  <?php echo $row["datae"] ?>
-                </td>
-              </tr>
-            </tbody>
-            <?php
-          }
-      ?>
+                <th> ID </th>
+                <th> Equipamentos </th>
+                <th> Professor </th>
+                <th> Aula </th>
+                <th> Data </th>
 
-    </table>
-    </div>
-    </div>
+              </tr>
+            </thead>
+            <?php
+            include "conexao.php";
+
+            $sqli = "SELECT * FROM logim";
+            $pass = mysqli_query($conn, $sqli);
+
+            $found = false;
+            while ($logar = mysqli_fetch_assoc($pass)) {
+              if ($_SESSION['vald'] == $logar['logim']) {
+                $found = true;
+                break;
+              }
+            }
+            if (!$found) {
+              header("location: index.php");
+            }
+
+            $equip = $_GET['equip'];
+            $sql = "SELECT * FROM equipamento INNER JOIN professores ON equipamento.id_equip = professores.position WHERE equip like '%$equip%'";
+            $result = mysqli_query($conn, $sql);
+
+            while ($row = mysqli_fetch_assoc($result)) {
+              ?>
+              <tbody>
+                <tr>
+                  <td>
+                    <?php echo $row["id_equip"] ?>
+                  </td>
+                  <td>
+                    <?php echo $row["equip"] ?>
+                  </td>
+                  <td>
+                    <?php echo $row["nome"] ?>
+                  </td>
+                  <td>
+                    <?php echo $row["aula"] ?>
+                  </td>
+                  <td>
+                    <?php echo $row["datae"] ?>
+                  </td>
+                </tr>
+              </tbody>
+              <?php
+            }
+            ?>
+
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </body>

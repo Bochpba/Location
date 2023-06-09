@@ -10,8 +10,6 @@
 
 <body>
   <?php
-   include "pass.php";
-   
   include("conexao.php");
   session_start();
 

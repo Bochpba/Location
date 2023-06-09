@@ -17,100 +17,127 @@
 <body>
   <div class="container">
     <div class="box3">
-  <div class="navigation">
-  <a href="tb_professores.php"> <button id="edit">Realizar locação</button> </a>
- 
-   <a href="new_user.php"> <button id="useradd">Adicionar Usuários </button> </a>
-  
-   <a href="tb_equipamento.php"> <button id="modify">Modificar Equipamento</button> </a>
-  
-   <a href="consulta_equipamento.php"> <button id="pesquisa">Consultar Equipamento Por Nome</button> </a>
-   
-   <a href="logout.php"> <button id="logout"> Logout </button> </a>
-   
-  </div>
+      <div class="navigation">
+        <a href="tb_professores.php"> <button id="edit">Realizar locação</button> </a>
 
-  <?php
-  include "conexao.php";
-  include "arrays.php";
-  include "pass.php";
+        <a href="new_user.php"> <button id="useradd">Adicionar Usuários </button> </a>
 
-  $sqle = "SELECT * FROM equipamento";
-  $result = mysqli_query($conn, $sqle);
+        <a href="tb_equipamento.php"> <button id="modify">Modificar Equipamento</button> </a>
 
-  $sqlp = "SELECT * FROM professores ORDER BY aula, position";
-  $resultp = mysqli_query($conn, $sqlp);
-  ?>
-  
-  <div class="table" >
+        <a href="consulta_equipamento.php"> <button id="pesquisa">Consultar Equipamento Por Nome</button> </a>
 
-  <h1> <?php echo $_GET['data']?> </h1>
-  <form method="GET" action="locacao.php">
-    <input class="data" type="date" value="<?php echo $_GET['data'] ?>" name="data" required>
-    <input class="submit" type="submit" value="Selecionar data">
-  </form>
-  
- 
-  <?php
-  while ($rowp = mysqli_fetch_assoc($resultp)) {
-    if ($rowp["datae"] == $_GET["data"]) {
-      $aula = $rowp["aula"];
-      $posicao = $rowp["position"];
-      $nome = $rowp["nome"];
-      if (!isset($nomesAulas[$aula])) {
-        $nomesAulas[$aula] = array_fill(1, $_SESSION['num'], "");
-      }
-      $nomesAulas[$aula][$posicao] = $nome;
-    }
-  }
+        <a href="logout.php"> <button id="logout"> Logout </button> </a>
 
-  ?>
-  
-  <table border=1 cellspacing="0" id="list">
-    <tr>
-      <th>Equipamentos</th>
+      </div>
+
       <?php
-      while ($row = mysqli_fetch_assoc($result)) {
-        echo "<th>" . $row['equip'] . "</th>";
-        $id_equip = $row['id_equip'];
-        $_SESSION['num'] = mysqli_num_rows($result);
+      include "conexao.php";
+      include "arrays.php";
+
+      $sqli = "SELECT * FROM logim";
+      $pass = mysqli_query($conn, $sqli);
+
+      $found = false;
+      while ($logar = mysqli_fetch_assoc($pass)) {
+        if ($_SESSION['vald'] == $logar['logim']) {
+          $found = true;
+          break;
+        }
+      }
+      if (!$found) {
+        header("location: index.php");
+      }
+
+      $sqle = "SELECT * FROM equipamento";
+      $result = mysqli_query($conn, $sqle);
+
+      $sqlp = "SELECT * FROM professores ORDER BY aula, position";
+      $resultp = mysqli_query($conn, $sqlp);
+
+      if (!isset($_GET['data'])) {
+        $_GET['data'] = null;
+      } else if($_GET['data'] != null){
+        $dat = date_create($_GET['data']);
       }
       ?>
-    </tr>
 
-    <?php
-    $_SESSION['data'] = $_GET['data'];
+      <div class="table">
 
-    foreach ($aulas as $aula => $tituloAula) {
-      echo "<tr>";
-      echo "<th>".$tituloAula."</th>";
-    
-      if (isset($nomesAulas[$aula])) {
-        $nomesAula = $nomesAulas[$aula];
-        mysqli_data_seek($result, 0);
-    
-        while ($row = mysqli_fetch_assoc($result)) {
-          $id_equip = $row['id_equip'];
-          echo "<td>";
-          if (isset($nomesAula[$id_equip]) && $nomesAula[$id_equip] != '') {
-            echo $nomesAula[$id_equip];
+        <h1>
+          <?php
+          if (isset($dat)) {
+            echo date_format($dat, "d/m/Y");
+            $_SESSION['showdate'] = date_format($dat, "d/m/Y");
+          } else {
+            $_SESSION['showdate'] = null;
           }
-          echo "</td>";
-        }
-      } else {
-        for ($pass = 1; $pass <= $_SESSION['num']; $pass++) {
-          echo "<td></td>";
-        }
-      }
-      echo "</tr>";
-    }
-    $_SESSION['yes'] = null;
-    $_SESSION['no'] = null;
-    ?>
+          ?>
+        </h1>
+        <form method="GET" action="locacao.php">
+          <input class="data" type="date" value="<?php echo $_GET['data'] ?>" name="data" required>
+          <input class="submit" type="submit" value="Selecionar data">
+        </form>
 
-  </table>
-  </div>
-  </div>
+
+        <?php
+        while ($rowp = mysqli_fetch_assoc($resultp)) {
+          if ($rowp["datae"] == $_GET["data"]) {
+            $aula = $rowp["aula"];
+            $posicao = $rowp["position"];
+            $nome = $rowp["nome"];
+            if (!isset($nomesAulas[$aula])) {
+              $nomesAulas[$aula] = array_fill(1, $_SESSION['num'], "");
+            }
+            $nomesAulas[$aula][$posicao] = $nome;
+          }
+        }
+        ?>
+
+        <table border=1 cellspacing="0" id="list">
+          <tr>
+            <th>Equipamentos</th>
+            <?php
+            while ($row = mysqli_fetch_assoc($result)) {
+              echo "<th>" . $row['equip'] . "</th>";
+              $id_equip = $row['id_equip'];
+              $_SESSION['num'] = mysqli_num_rows($result);
+            }
+            ?>
+          </tr>
+
+          <?php
+          $_SESSION['data'] = $_GET['data'];
+
+          foreach ($aulas as $aula => $tituloAula) {
+            echo "<tr>";
+            echo "<th>" . $tituloAula . "</th>";
+
+            if (isset($nomesAulas[$aula])) {
+              $nomesAula = $nomesAulas[$aula];
+              mysqli_data_seek($result, 0);
+
+              while ($row = mysqli_fetch_assoc($result)) {
+                $id_equip = $row['id_equip'];
+                echo "<td>";
+                if (isset($nomesAula[$id_equip]) && $nomesAula[$id_equip] != '') {
+                  echo $nomesAula[$id_equip];
+                }
+                echo "</td>";
+              }
+            } else {
+              for ($pass = 1; $pass <= $_SESSION['num']; $pass++) {
+                echo "<td></td>";
+              }
+            }
+            echo "</tr>";
+          }
+          $_SESSION['yes'] = null;
+          $_SESSION['no'] = null;
+          ?>
+
+        </table>
+      </div>
+    </div>
   </div>
 </body>
 

@@ -13,9 +13,9 @@ $logar = mysqli_fetch_assoc($result);
 if ($logar) {
     $_SESSION['vald'] = $logar['logim'];
     if ($logar['logtype'] == true) {
-        header('Location: locacao.php?data=');
+        header('Location: locacao.php');
     } else {
-        header('Location: locacaoprof.php?data=');
+        header('Location: locacaoprof.php');
     }
 } else {
     header('Location: index.php');

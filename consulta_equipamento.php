@@ -4,10 +4,20 @@
 <?php
 session_start();
 include "conexao.php";
-include "pass.php";
 
+$sqli = "SELECT * FROM logim";
+$pass = mysqli_query($conn, $sqli);
 
-
+$found = false;
+while ($logar = mysqli_fetch_assoc($pass)) {
+    if ($_SESSION['vald'] == $logar['logim']) {
+        $found = true;
+        break;
+    }
+}
+if (!$found) {
+    header("location: index.php");
+}
 ?>
 
 <head>
@@ -19,21 +29,21 @@ include "pass.php";
 
 <body>
     <div class="container">
-    <div class="box3">
-    <div class="box">
-    <a href="locacao.php?data=<?php echo $_SESSION['data'] ?>"> <img src="voltar.png" width="50px"> </a>
-</div>
-<div class="box1">
-    <div class="table">
-    <h1> Consulta equipamento por nome </h1>
-    <form method="GET" action="busca_equipamento.php">
-        <input id="keyword" name="equip" type="text" />
-        <button type="submit" id="search">procurar </button>
-    </form>
-</div>
-</div>
-</div>
-</div>
+        <div class="box3">
+            <div class="box">
+                <a href="locacao.php?data=<?php echo $_SESSION['data'] ?>"> <img src="voltar.png" width="50px"> </a>
+            </div>
+            <div class="box1">
+                <div class="table">
+                    <h1> Consulta equipamento por nome </h1>
+                    <form method="GET" action="busca_equipamento.php">
+                        <input id="keyword" name="equip" type="text" />
+                        <button type="submit" id="search">procurar </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
