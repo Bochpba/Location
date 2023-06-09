@@ -63,6 +63,12 @@ body{
     font-size: larger;
     cursor: pointer;
 }
+tr:nth-child(odd) {
+	background-color:#ffffff;
+	}
+	tr:nth-child(even) {
+	background-color:#dbdbdb;
+	}
 th{
     background-color: #ff871e;
 }
