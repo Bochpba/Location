@@ -49,12 +49,14 @@ body{
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 60px; 
+    font-family: 'Miriam Libre', sans-serif;
 }
 .table table{ 
     background-color: #ffffff;
     width: auto;
 }
-.table input {
+.table input { 
+    width: 200px;
     text-align: center;
     font-size: larger;
 }
@@ -62,7 +64,10 @@ body{
     color:black;
 }
 .table select{
+    width: 200px;
     cursor: pointer;
+    text-align: center;
+    font-size: larger;
 }
 th{
     background-color: #ff871e;

@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="tabela.css">
   <title>Document</title>
 </head>
 
@@ -43,14 +44,23 @@
     $aula = $row['aula'];
   }
   ?>
-  <a href="tb_professores.php?data=<?php echo $_SESSION['data'] ?>"> voltar </a>
+
+  <div class="container">
+    <div class="box3">
+      <div class="box">
+  <a href="tb_professores.php?data=<?php echo $_SESSION['data'] ?>"> <img src="voltar.png" width="50px"> </a>
+  </div>
+  <div class="box1">
+        <div class="table">
   <br>
   <form action="atualizar.php" method="get" align="center">
-    <label> Insira o novo nome :</label>
+  <br> <br>
+    
     <input type="text" name="name" value=<?php echo "$nome" ?>>
-    <br>
-    <label> Insira o equipamento :</label>
+    <br> <br>
+    
     <select name="position">
+      
       <option value="" disabled selected>
         <?php echo $equip ?>
       </option>
@@ -61,8 +71,8 @@
       }
       ?>
     </select>
-    <br>
-    <label> Insira a aula :</label>
+    <br> <br>
+    
     <select name="aula">
       <option value="" disabled selected>Aula
         <?php echo $aula ?>
@@ -85,7 +95,10 @@
 
     ?>
   </form>
-
+  </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

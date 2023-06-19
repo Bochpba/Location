@@ -43,35 +43,41 @@
       $cor = $row["cor"];
     }
   }
-
+?>
+<div class="container">
+<div class="box3">
+      <div class="box">
+<?php
   if ($_SESSION['alt'] == 1) {
-    echo "<a href='tb_equipamento.php?data=$_SESSION[data]'> voltar </a>";
+    echo "<a href='tb_equipamento.php?data=$_SESSION[data]'> <img src='voltar.png' width='50px'> </a>";
   } else {
-    echo "<a href='busca_equipamento.php?atu=$_SESSION[equip]'> voltar </a>";
+    echo "<a href='busca_equipamento.php?atu=$_SESSION[equip]'> <img src='voltar.png' width='50px'> </a>";
   }
   ?>
-
+  </div>
+ <div class="box1">
+        <div class="table">
   <form action="atualizare.php" method="get" align="center">
-    <label> Insira o novo equipamento :</label>
-    <input type="text" name="name" value="<?php echo "$nome" ?>">
-    <br>
-    <label> Insira a marca :</label>
-    <input type="text" name="marca" value="<?php echo "$marca" ?>">
-    <br>
-    <label> Insira o modelo :</label>
-    <input type="text" name="modelo" value="<?php echo "$modelo" ?>">
-    <br>
-    <label> Insira a cor :</label>
-    <input type="text" name="cor" value="<?php echo "$cor" ?>">
-    <br>
-    <input type="hidden" name="atu" value="<?php echo "$idup"; ?>">
+    <br> <br>
+    <input type="text" name="name" value="<?php echo "$nome" ?>" placeholder="nome do equipamento">
+    <br> <br>
+    <input type="text" name="marca" value="<?php echo "$marca" ?>" placeholder="marca do equipamento">
+    <br> <br>
+    <input type="text" name="modelo" value="<?php echo "$modelo" ?>" placeholder="modelo do equipamento">
+    <br> <br>
+    <input type="text" name="cor" value="<?php echo "$cor" ?>" placeholder="cor do equipamento">
+    <br> <br>
+    <input type="hidden" name="atu" value="<?php echo "$idup"; ?>" >
     <input type="submit" value="ATUALIZAR">
     <?php
 
 
     ?>
   </form>
-
+  </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
