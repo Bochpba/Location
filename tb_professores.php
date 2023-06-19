@@ -35,6 +35,8 @@
       <?php
       $_SESSION['mesg'] = false;
     }
+
+    $_SESSION['alt'] = 1;
     ?>
   </script>
 </head>

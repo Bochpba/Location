@@ -20,9 +20,9 @@
     $msg = $_SESSION['msg'];
 
     if ($msg == true) {
-      ?>
+    ?>
       alert("insira o nome do equipamento");
-      <?php
+    <?php
       $_SESSION['mesg'] = false;
     }
     ?>
@@ -34,8 +34,7 @@
   <div class="container">
     <div class="box3">
       <div class="box">
-        <a id="return" href="consulta_equipamento.php?data=<?php echo $_SESSION['data'] ?>"> <img src="voltar.png"
-            width="50px"> </a>
+        <a id="return" href="consulta_equipamento.php?data=<?php echo $_SESSION['data'] ?>"> <img src="voltar.png" width="50px"> </a>
       </div>
       <div class="box1">
         <br>
@@ -69,19 +68,23 @@
               header("location: index.php");
             }
 
+            if (!isset($_GET['equip'])) {
+              $_GET['equip'] =  $_SESSION['equip'];
+            }
             $equip = $_GET['equip'];
+            $_SESSION['equip'] = $equip;
 
             $sql = "SELECT id_equip, equip, marca, modelo, cor FROM equipamento WHERE equip like '%$equip%'";
             $result = mysqli_query($conn, $sql);
 
-
+            $_SESSION['alt'] = 0;
 
             if ($result) {
 
               while ($row = mysqli_fetch_assoc($result)) {
 
 
-                ?>
+            ?>
                 <tbody>
                   <tr>
                     <td>
@@ -108,9 +111,8 @@
                   </tr>
                 </tbody>
 
-                <?php
+            <?php
               }
-
             }
             ?>
             <tr>

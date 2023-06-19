@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="tabela.css">
   <title>Document</title>
 </head>
 
@@ -43,8 +44,13 @@
     }
   }
 
+  if ($_SESSION['alt'] == 1) {
+    echo "<a href='tb_equipamento.php?data=$_SESSION[data]'> voltar </a>";
+  } else {
+    echo "<a href='busca_equipamento.php?atu=$_SESSION[equip]'> voltar </a>";
+  }
   ?>
-    <a href="tb_equipamento.php?data=<?php echo $_SESSION['data'] ?>"> voltar </a>
+
   <form action="atualizare.php" method="get" align="center">
     <label> Insira o novo equipamento :</label>
     <input type="text" name="name" value="<?php echo "$nome" ?>">
